@@ -1,0 +1,60 @@
+<idea-plugin>
+    <id>org.tonyq.ci-load-analyzer</id>
+    <name>CodeIgniter Load Analyzer</name>
+    <version>1.0.0</version>
+    <vendor email="tonylovejava@gmail.com" url="https://facebook.com/tonylovejava">TonyQ</vendor>
+
+    <description><![CDATA[
+    <p>自動分析 CodeIgniter 檔案中的 $this->load 調用，並生成對應的 PHPDoc @property 註解。</p>
+    
+    <h3>功能特色：</h3>
+    <ul>
+        <li>自動偵測 $this->load->library() 調用</li>
+        <li>自動偵測 $this->load->model() 調用</li>
+        <li>自動偵測 $this->load->database() 調用</li>
+        <li>智能類別名稱映射</li>
+        <li>自動去重複屬性</li>
+        <li>支援現有 PHPDoc 註解的更新</li>
+    </ul>
+    
+    <h3>使用方法：</h3>
+    <ol>
+        <li>在 PHP 檔案中右鍵點擊</li>
+        <li>選擇 "Generate CodeIgniter Properties"</li>
+        <li>自動生成 @property 註解</li>
+    </ol>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h3>Version 1.0.0</h3>
+    <ul>
+        <li>初始版本發布</li>
+        <li>支援 Library, Model, Database 載入分析</li>
+        <li>自動生成 PHPDoc 屬性註解</li>
+    </ul>
+    ]]></change-notes>
+
+    <!-- IntelliJ IDEA 版本相容性 -->
+    <idea-version since-build="231.0" until-build="251.*"/>
+
+    <!-- 支援的 IDE -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 無需額外的擴展點 -->
+    </extensions>
+
+    <actions>
+        <action id="CodeIgniterLoadAnalyzer.GenerateProperties"
+                class="org.tonyq.ciloadanalyzer.GeneratePropertiesAction"
+                text="Generate CodeIgniter Properties"
+                description="分析當前 PHP 檔案中的 $this->load 調用並生成 @property 註解">
+            <!-- 在編輯器右鍵選單中顯示 -->
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="Generate"/>
+            <!-- 也在 Code 選單中顯示 -->
+            <add-to-group group-id="CodeMenu" anchor="after" relative-to-action="Generate"/>
+            <!-- 快捷鍵：Ctrl+Shift+G (Windows/Linux) 或 Cmd+Shift+G (Mac) -->
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift G"/>
+        </action>
+    </actions>
+</idea-plugin>

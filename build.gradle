@@ -1,0 +1,82 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.17.2'
+}
+
+group 'org.tonyq'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+// 配置 IntelliJ Platform Plugin SDK
+intellij {
+    version = '2023.1.5'
+    type = 'IC' // IntelliJ Community Edition
+    // 移除 PHP 插件依賴
+    
+    updateSinceUntilBuild = false
+}
+
+// Java 版本配置
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+tasks {
+    // 設定編碼
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+    
+    // 設定 JVM 參數
+    runIde {
+        jvmArgs = ['-Xmx2g']
+        systemProperty('idea.auto.reload.plugins', 'true')
+    }
+    
+    // 建置插件
+    buildPlugin {
+        archiveFileName = "${project.name}-${project.version}.zip"
+    }
+    
+    // 設定插件驗證
+    verifyPlugin {
+        ignoreFailures = false
+    }
+    
+    // 發布設定（可選）
+    publishPlugin {
+        // 如果要發布到 JetBrains Marketplace，需要設定 token
+        // token = System.getenv('PUBLISH_TOKEN')
+    }
+    
+    // 設定 patch plugin.xml
+    patchPluginXml {
+        // 會自動從 plugin.xml 讀取基本資訊
+        sinceBuild = '231'
+        untilBuild = '251.*'
+        
+        // 可以在這裡覆蓋版本資訊
+        // version = project.version
+        
+        // 更新變更日誌
+        changeNotes = """
+        <h3>Version 1.0.0</h3>
+        <ul>
+            <li>初始版本發布</li>
+            <li>支援 Library, Model, Database 載入分析</li>
+            <li>自動生成 PHPDoc 屬性註解</li>
+            <li>智能類別名稱映射</li>
+            <li>自動去重複屬性</li>
+        </ul>
+        """
+    }
+}
+
+// 設定編譯參數
+compileJava {
+    options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
+}
