@@ -13,7 +13,7 @@ repositories {
 // 配置 IntelliJ Platform Plugin SDK
 intellij {
     version = '2024.3'
-    type = 'PH' 
+    type = 'PS' 
 //    plugins = ['com.jetbrains.php'] // 添加 PHP 插件支援
 
     updateSinceUntilBuild = false
