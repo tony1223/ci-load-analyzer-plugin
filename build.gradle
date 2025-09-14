@@ -12,9 +12,9 @@ repositories {
 
 // 配置 IntelliJ Platform Plugin SDK
 intellij {
-    version = '2023.1.5'
-    type = 'PS' // PhpStorm - 改為 PS 以在 PhpStorm 中測試
-    // plugins = ['com.jetbrains.php'] // 如果需要 PHP 插件支援
+    version = '2025.1'
+    type = 'IC' // IntelliJ Community Edition
+    plugins = ['com.jetbrains.php'] // 添加 PHP 插件支援
 
     updateSinceUntilBuild = false
 }
