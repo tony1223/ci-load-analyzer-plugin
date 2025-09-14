@@ -37,7 +37,7 @@
     ]]></change-notes>
 
     <!-- IntelliJ IDEA 版本相容性 -->
-    <idea-version since-build="243.0" until-build="251.*"/>
+    <idea-version since-build="243.0" until-build="252.*"/>
 
     <!-- 支援的 IDE -->
     <depends>com.intellij.modules.platform</depends>
