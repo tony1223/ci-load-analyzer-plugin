@@ -53,27 +53,6 @@ tasks {
         // token = System.getenv('PUBLISH_TOKEN')
     }
     
-    // 設定 patch plugin.xml
-    patchPluginXml {
-        // 會自動從 plugin.xml 讀取基本資訊
-        sinceBuild = '231'
-        untilBuild = '251.*'
-        
-        // 可以在這裡覆蓋版本資訊
-        // version = project.version
-        
-        // 更新變更日誌
-        changeNotes = """
-        <h3>Version 1.0.0</h3>
-        <ul>
-            <li>初始版本發布</li>
-            <li>支援 Library, Model, Database 載入分析</li>
-            <li>自動生成 PHPDoc 屬性註解</li>
-            <li>智能類別名稱映射</li>
-            <li>自動去重複屬性</li>
-        </ul>
-        """
-    }
 }
 
 // 設定編譯參數

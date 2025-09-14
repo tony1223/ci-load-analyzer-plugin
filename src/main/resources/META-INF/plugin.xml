@@ -5,32 +5,34 @@
     <vendor email="tonylovejava@gmail.com" url="https://facebook.com/tonylovejava">TonyQ</vendor>
 
     <description><![CDATA[
-    <p>自動分析 CodeIgniter 檔案中的 $this->load 調用，並生成對應的 PHPDoc @property 註解。</p>
-    
-    <h3>功能特色：</h3>
+    <p>Automatically analyzes CodeIgniter files for $this->load calls and generates corresponding PHPDoc @property annotations.</p>
+
+    <h3>Features:</h3>
     <ul>
-        <li>自動偵測 $this->load->library() 調用</li>
-        <li>自動偵測 $this->load->model() 調用</li>
-        <li>自動偵測 $this->load->database() 調用</li>
-        <li>智能類別名稱映射</li>
-        <li>自動去重複屬性</li>
-        <li>支援現有 PHPDoc 註解的更新</li>
+        <li>Auto-detect $this->load->library() calls</li>
+        <li>Auto-detect $this->load->model() calls</li>
+        <li>Auto-detect $this->load->database() calls</li>
+        <li>Smart class name mapping</li>
+        <li>Automatic duplicate property removal</li>
+        <li>Support for updating existing PHPDoc annotations</li>
     </ul>
-    
-    <h3>使用方法：</h3>
+
+    <h3>Usage:</h3>
     <ol>
-        <li>在 PHP 檔案中右鍵點擊</li>
-        <li>選擇 "Generate CodeIgniter Properties"</li>
-        <li>自動生成 @property 註解</li>
+        <li>Right-click in a PHP file</li>
+        <li>Select "Generate CodeIgniter Properties"</li>
+        <li>Automatically generate @property annotations</li>
     </ol>
     ]]></description>
 
     <change-notes><![CDATA[
     <h3>Version 1.0.0</h3>
     <ul>
-        <li>初始版本發布</li>
-        <li>支援 Library, Model, Database 載入分析</li>
-        <li>自動生成 PHPDoc 屬性註解</li>
+        <li>Initial release</li>
+        <li>Support for Library, Model, Database load analysis</li>
+        <li>Automatic PHPDoc property annotation generation</li>
+        <li>Smart class name mapping</li>
+        <li>Automatic duplicate property removal</li>
     </ul>
     ]]></change-notes>
 
