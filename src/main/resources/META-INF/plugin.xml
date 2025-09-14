@@ -41,8 +41,6 @@
 
     <!-- 支援的 IDE -->
     <depends>com.intellij.modules.platform</depends>
-    <!-- 添加對 PHP 語言的支援，確保在 PhpStorm 中正常工作 -->
-    <depends optional="true" config-file="php-support.xml">com.jetbrains.php</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- 無需額外的擴展點 -->

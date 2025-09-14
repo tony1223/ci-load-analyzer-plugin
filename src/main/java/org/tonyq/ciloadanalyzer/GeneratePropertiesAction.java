@@ -1,5 +1,6 @@
 package org.tonyq.ciloadanalyzer;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -24,6 +25,11 @@ import java.util.*;
  * 3. 更新檔案內容
  */
 public class GeneratePropertiesAction extends AnAction {
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.BGT; // 在背景執行緒中執行更新
+    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -87,20 +93,13 @@ public class GeneratePropertiesAction extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        // 檢查是否為 PHP 檔案
+        // 檢查是否為 PHP 檔案（簡化檢測，只用副檔名）
         PsiFile psiFile = e.getData(CommonDataKeys.PSI_FILE);
         boolean isPhpFile = false;
 
         if (psiFile != null) {
             String fileName = psiFile.getName();
-            // 檢查副檔名
             isPhpFile = fileName.toLowerCase().endsWith(".php");
-
-            // 也可以通過檔案類型檢查
-            String fileType = psiFile.getFileType().getName();
-            if ("PHP".equals(fileType) || "PhpFileType".equals(fileType)) {
-                isPhpFile = true;
-            }
         }
 
         // 設定 Action 的可見性和啟用狀態

@@ -12,9 +12,9 @@ repositories {
 
 // 配置 IntelliJ Platform Plugin SDK
 intellij {
-    version = '2024.3'
-    type = 'PS' 
-//    plugins = ['com.jetbrains.php'] // 添加 PHP 插件支援
+    version = '2025.1'
+    type = 'PS' // IntelliJ Community Edition
+    // 不依賴 PHP 插件，讓插件在所有 IDE 中都能運作
 
     updateSinceUntilBuild = false
 }
