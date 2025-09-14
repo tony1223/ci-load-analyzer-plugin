@@ -87,13 +87,23 @@ public class GeneratePropertiesAction extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent e) {
-        // 只在 PHP 檔案中顯示此 Action (通過副檔名檢查)
+        // 檢查是否為 PHP 檔案
         PsiFile psiFile = e.getData(CommonDataKeys.PSI_FILE);
         boolean isPhpFile = false;
+
         if (psiFile != null) {
             String fileName = psiFile.getName();
+            // 檢查副檔名
             isPhpFile = fileName.toLowerCase().endsWith(".php");
+
+            // 也可以通過檔案類型檢查
+            String fileType = psiFile.getFileType().getName();
+            if ("PHP".equals(fileType) || "PhpFileType".equals(fileType)) {
+                isPhpFile = true;
+            }
         }
+
+        // 設定 Action 的可見性和啟用狀態
         e.getPresentation().setEnabledAndVisible(isPhpFile);
     }
 }

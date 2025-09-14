@@ -13,9 +13,9 @@ repositories {
 // 配置 IntelliJ Platform Plugin SDK
 intellij {
     version = '2023.1.5'
-    type = 'IC' // IntelliJ Community Edition
-    // 移除 PHP 插件依賴
-    
+    type = 'PS' // PhpStorm - 改為 PS 以在 PhpStorm 中測試
+    // plugins = ['com.jetbrains.php'] // 如果需要 PHP 插件支援
+
     updateSinceUntilBuild = false
 }
 

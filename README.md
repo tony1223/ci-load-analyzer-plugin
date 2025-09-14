@@ -67,10 +67,10 @@ cd ci-load-analyzer-plugin
 ### 輸入 (PHP 檔案)
 ```php
 <?php
-class MyController extends CI_Controller {
+class StudentController extends CI_Controller {
     public function index() {
-        $this->load->library('personal_overtime_application/Overtime_application_component');
-        $this->load->model('Overtime_record_model');
+        $this->load->library('student_management/Student_grade_calculator');
+        $this->load->model('Student_record_model');
         $this->load->database();
     }
 }
@@ -81,13 +81,13 @@ class MyController extends CI_Controller {
 <?php
 /**
  * @property CI_DB_query_builder $db
- * @property Overtime_Record_Model $overtime_record_model
- * @property Overtime_application_component $overtime_application_component
+ * @property Student_Record_Model $student_record_model
+ * @property Student_grade_calculator $student_grade_calculator
  */
-class MyController extends CI_Controller {
+class StudentController extends CI_Controller {
     public function index() {
-        $this->load->library('personal_overtime_application/Overtime_application_component');
-        $this->load->model('Overtime_record_model');
+        $this->load->library('student_management/Student_grade_calculator');
+        $this->load->model('Student_record_model');
         $this->load->database();
     }
 }
@@ -97,14 +97,14 @@ class MyController extends CI_Controller {
 
 ### Library 載入
 ```php
-$this->load->library('personal_overtime_application/Overtime_application_component');
-// 生成: @property Overtime_application_component $overtime_application_component
+$this->load->library('student_management/Student_grade_calculator');
+// 生成: @property Student_grade_calculator $student_grade_calculator
 ```
 
 ### Model 載入
 ```php
-$this->load->model('Overtime_record_model');
-// 生成: @property Overtime_Record_Model $overtime_record_model
+$this->load->model('Student_record_model');
+// 生成: @property Student_Record_Model $student_record_model
 ```
 
 ### Database 載入

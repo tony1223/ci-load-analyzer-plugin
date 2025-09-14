@@ -1,0 +1,6 @@
+<idea-plugin>
+    <!-- 這個檔案定義了針對 PHP 語言的特定設定 -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 無需額外的擴展點，因為我們使用通用的檔案檢測方式 -->
+    </extensions>
+</idea-plugin>
