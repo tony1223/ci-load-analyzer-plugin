@@ -5,6 +5,9 @@ gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
 
+
+.claude/
+
 # IntelliJ IDEA
 .idea/
 *.iml
