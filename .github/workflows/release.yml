@@ -50,17 +50,11 @@ jobs:
         sed -i "s/<version>.*<\/version>/<version>$VERSION<\/version>/" src/main/resources/META-INF/plugin.xml
         echo "Updated plugin.xml version to: $VERSION"
 
-    - name: Update build.gradle version
-      run: |
-        VERSION=${{ steps.version.outputs.VERSION }}
-        sed -i "s/version = '.*'/version = '$VERSION'/" build.gradle
-        echo "Updated build.gradle version to: $VERSION"
-
     - name: Verify plugin
-      run: ./gradlew verifyPlugin
+      run: ./gradlew verifyPlugin -Pversion=${{ steps.version.outputs.VERSION }}
 
     - name: Build plugin
-      run: ./gradlew buildPlugin
+      run: ./gradlew buildPlugin -Pversion=${{ steps.version.outputs.VERSION }}
 
     - name: Create Release
       id: create_release

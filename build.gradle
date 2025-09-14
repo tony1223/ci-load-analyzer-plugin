@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'org.tonyq'
-version '1.0.0'
+version = project.hasProperty('version') ? project.property('version') : '1.0.0'
 
 repositories {
     mavenCentral()
@@ -12,9 +12,9 @@ repositories {
 
 // 配置 IntelliJ Platform Plugin SDK
 intellij {
-    version = '2025.1'
-    type = 'IC' // IntelliJ Community Edition
-    plugins = ['com.jetbrains.php'] // 添加 PHP 插件支援
+    version = '2024.3'
+    type = 'PH' 
+//    plugins = ['com.jetbrains.php'] // 添加 PHP 插件支援
 
     updateSinceUntilBuild = false
 }
